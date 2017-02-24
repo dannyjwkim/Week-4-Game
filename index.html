@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Crystal Game</title>
+	<title>Crystal Collector Game</title>
+	<style type="text/css" src="assets/css/reset.css"></style>
+	<style type="text/css" src="assets/css/style.css"></style>
 </head>
+
 <body>
-	
+
+<h1> Crystal Collector Game </h1>
+
+<div class="instructions">
+<p> You will be given a random Target Score at the start of the game. <br>Each of the four crystals have been randomly assigned a value. <br> Clicking on each crystal adds a specific amount of points to your Total Score.<br> You win the game by matching your Total Score to the Target Score.<br> The value of each crystal is hidden until you click it. <br> Each time the game restarts, the values of each crystal will also be re-randomized.</p>
+</div>
+
+<div class="targetScore">Target Score</div>
+<div class="scoreBoard">
+	<ul>
+		<li><p id="winLossMessage"></p></li>
+		<li>Wins:<p id="wins"></p></li>
+		<li>Losses:<p id="losses"></p></li>
+	</ul>
+</div>
+<div class="gemPics">
+	<img src="crystal1.png" alt="crystal1" class="pic1">
+	<img src="crystal2.png" alt="crystal2" class="pic2">
+	<img src="crystal3.png" alt="crystal3" class="pic3">
+	<img src="crystal4.png" alt="crystal4" class="pic4">
+</div>
+<div>
+	<h3>Your total score is:</h3>
+	<p class="score">0</p>
+</div>
+
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	<script src="assets/javascript/game.js"></script>
+
 </body>
 </html>

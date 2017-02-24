@@ -1,61 +1,72 @@
-var computerOptions = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var loss = 0;
+var win = 0;
+var crystalValue = Math.floor(Math.random() * (102)+ 19)
+var gemArray = [];
+var adder = 0;
 
-var wins = 0;
-var losses = 0;
-var guesses = 9;
-var guessesLeft = 9;
-var guessedLetters = [];
-var letterToGuess = null;
-
-var computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
-
-var updateGuessesLeft = function() {
-  document.querySelector("#guessLeft").innerHTML = "Guesses left: " + guessesLeft;
+$(document).ready(function(){
+  function gemFunc() {
+    for (var i = 0; i < 4; i++){
+    var gem = Math.floor(Math.random() * 12) + 1 ;
+    gemArray.push(gem);
+  }
 };
 
-var updateLetterToGuess = function() {
-  this.letterToGuess = this.computerOptions[Math.floor(Math.random() * this.computerOptions.length)];
-};
-var updateGuessesSoFar = function() {
-  document.querySelector("#letter").innerHTML = "Your Guesses so far: " + guessedLetters.join(", ");
+gemFunc();
+$('.targetScore').html(crystalValue);
+
+$('.pic1').on("click", function(){
+  var gem1value = (gemArray[0]);
+  adder = adder + gem1value;
+  $('.score').html(adder);
+  checkIt();
+});
+
+$('.pic2').on("click", function(){
+  var gem2value = (gemArray[1]);
+  adder = adder + gem2value;
+  $('.score').html(adder);
+  checkIt();
+});
+
+$('.pic3').on("click", function(){
+  var gem3value = (gemArray[2]);
+  adder = adder + gem3value;
+  $('.score').html(adder);
+  checkIt();
+});
+
+$('.pic4').on("click", function(){
+  var gem4value = (gemArray[3]);
+  adder = adder + gem4value;
+  $('.score').html(adder);
+  checkIt();
+});
+
+function checkIt(){
+  if (crystalValue === adder) {
+    $("#winLossMessage").html("You win! Play again!");
+    win = win + 1;
+    $("#wins").html(win);
+    reset();
+  }
+  else if (crystalValue < adder) {
+    $("#winLossMessage").html("You lose! Try again!");
+    loss = loss + 1;
+    console.log(loss);
+    $("#losses").html(loss);
+    reset();
+  }
 };
 
-var reset = function() {
-  totalGuesses = 9;
-  guessesLeft = 9;
-  guessedLetters = [];
-
-  updateLetterToGuess();
-  updateGuessesLeft();
-  updateGuessesSoFar();
+function reset(){
+  gemArray.length = 0;
+  gemFunc();
+  crystalValue = Math.floor(Math.random() * (102)+ 19)
+  $('.targetScore').html(crystalValue);
+  adder = 0;
+  $('.score').html(adder);
+  console.log(gemArray)
 }
 
-updateLetterToGuess();
-updateGuessesLeft();
-
-
-document.onkeyup = function(event) {
-  guessesLeft--;
-  var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-  guessedLetters.push(userGuess);
-  updateGuessesLeft();
-  updateGuessesSoFar();
-
-  if (guessesLeft > 0) {
-    if (userGuess == letterToGuess){
-      wins++;
-      document.querySelector("#wins").innerHTML = "Wins: " + wins;
-      alert("Whaaaaat, you ARE psychic!");
-      reset();
-    }
-  }     
-        
-    else if(guessesLeft == 0) {
-      losses++;
-      document.querySelector("#losses").innerHTML = "Losses: " + losses;
-      alert("Surprise, surprise, you're not psychic. Try again!");
-      reset();
-    }
-  
-};
+});
