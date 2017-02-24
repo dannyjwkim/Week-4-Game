@@ -2,40 +2,63 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Crystal Collector Game</title>
-	<style type="text/css" src="assets/css/reset.css"></style>
-	<style type="text/css" src="assets/css/style.css"></style>
+	<title>Card Collector Game</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 
 <body>
 
-<h1> Crystal Collector Game </h1>
+<div class="jumbotron">
+	
+	<div class="container">
 
-<div class="instructions">
-<p> You will be given a random Target Score at the start of the game. <br>Each of the four crystals have been randomly assigned a value. <br> Clicking on each crystal adds a specific amount of points to your Total Score.<br> You win the game by matching your Total Score to the Target Score.<br> The value of each crystal is hidden until you click it. <br> Each time the game restarts, the values of each crystal will also be re-randomized.</p>
+		<div class="row">
+
+			<h1 class="well well-sm text-center">Card Collector Game</h1>
+
+			<div class="instructions well">
+			<p> You will be given a random Target Score at the start of the game. <br>Each of these four famous baseball cards have been randomly assigned a value. <br> Clicking on each card adds a specific amount of points to your Total Score.<br> You win the game by matching your Total Score to the Target Score.<br> The value of each card is hidden until you click it. <br> Each time the game restarts, the values of each card will also be re-randomized.</p>
+			</div>
+
+			<div class="cardPics well well-sm text-center">
+				<img src="assets/images/wagner.jpg" alt="Honus Wagner" class="pic1">
+				<img src="assets/images/babe.jpg" alt="Babe Ruth" class="pic2">
+				<img src="assets/images/jackie.jpg" alt="Jackie Robinson" class="pic4">
+				<img src="assets/images/hank.jpg" alt="Hank Aaron" class="pic4">				
+			</div>
+
+		<div class="row">
+        <div class="col-sm-6">
+          <div class="well well-sm text-center">
+					<h3>Target Score:</h3>
+					<p class="targetScore text-center">0</p>
+					</div>
+        </div>
+        
+        <div class="col-sm-6">
+        	<div class="well well-sm text-center">
+					<h3>Your Total Score:</h3>
+					<p class="score text-center">0</p>
+					</div>
+        </div>
+    </div>
+
+			<div class="scoreBoard well well-sm">
+				<ul>
+					<li>Wins:<p id="wins"></p></li>
+					<li>Losses:<p id="losses"></p></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
 </div>
 
-<div class="targetScore">Target Score</div>
-<div class="scoreBoard">
-	<ul>
-		<li><p id="winLossMessage"></p></li>
-		<li>Wins:<p id="wins"></p></li>
-		<li>Losses:<p id="losses"></p></li>
-	</ul>
-</div>
-<div class="gemPics">
-	<img src="crystal1.png" alt="crystal1" class="pic1">
-	<img src="crystal2.png" alt="crystal2" class="pic2">
-	<img src="crystal3.png" alt="crystal3" class="pic3">
-	<img src="crystal4.png" alt="crystal4" class="pic4">
-</div>
-<div>
-	<h3>Your total score is:</h3>
-	<p class="score">0</p>
-</div>
-
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
-	<script src="assets/javascript/game.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+<script src="assets/javascript/game.js"></script>
 
 </body>
 </html>

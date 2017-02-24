@@ -1,72 +1,70 @@
 var loss = 0;
 var win = 0;
-var crystalValue = Math.floor(Math.random() * (102)+ 19)
-var gemArray = [];
+var cardValue = Math.floor(Math.random() * (102)+ 19)
+var cardArray = [];
 var adder = 0;
 
 $(document).ready(function(){
-  function gemFunc() {
+  function cardFunction() {
     for (var i = 0; i < 4; i++){
-    var gem = Math.floor(Math.random() * 12) + 1 ;
-    gemArray.push(gem);
+    var card = Math.floor(Math.random() * 12) + 1 ;
+    cardArray.push(card);
   }
 };
 
-gemFunc();
-$('.targetScore').html(crystalValue);
+cardFunction();
+$('.targetScore').html(cardValue);
 
 $('.pic1').on("click", function(){
-  var gem1value = (gemArray[0]);
-  adder = adder + gem1value;
+  var card1Value = (cardArray[0]);
+  adder = adder + card1Value;
   $('.score').html(adder);
   checkIt();
 });
 
 $('.pic2').on("click", function(){
-  var gem2value = (gemArray[1]);
-  adder = adder + gem2value;
+  var card2Value = (cardArray[1]);
+  adder = adder + card2Value;
   $('.score').html(adder);
   checkIt();
 });
 
 $('.pic3').on("click", function(){
-  var gem3value = (gemArray[2]);
-  adder = adder + gem3value;
+  var card4Value = (cardArray[2]);
+  adder = adder + card4Value;
   $('.score').html(adder);
   checkIt();
 });
 
 $('.pic4').on("click", function(){
-  var gem4value = (gemArray[3]);
-  adder = adder + gem4value;
+  var card4Value = (cardArray[3]);
+  adder = adder + card4Value;
   $('.score').html(adder);
   checkIt();
 });
 
 function checkIt(){
-  if (crystalValue === adder) {
-    $("#winLossMessage").html("You win! Play again!");
+  if (cardValue === adder) {
+    alert("You win! Play again!");
     win = win + 1;
     $("#wins").html(win);
     reset();
   }
-  else if (crystalValue < adder) {
-    $("#winLossMessage").html("You lose! Try again!");
+  else if (cardValue < adder) {
+    alert("You lose! Try again!");
     loss = loss + 1;
-    console.log(loss);
     $("#losses").html(loss);
     reset();
   }
 };
 
 function reset(){
-  gemArray.length = 0;
-  gemFunc();
-  crystalValue = Math.floor(Math.random() * (102)+ 19)
-  $('.targetScore').html(crystalValue);
+  cardArray.length = 0;
+  cardFunction();
+  cardValue = Math.floor(Math.random() * (102)+ 19)
+  $('.targetScore').html(cardValue);
   adder = 0;
   $('.score').html(adder);
-  console.log(gemArray)
 }
 
 });
