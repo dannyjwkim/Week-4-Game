@@ -1,0 +1,17 @@
+img {
+	width: 20%;
+}
+
+.targetScore {
+	border: 1px solid black;
+	width: 30%;
+	height: 100px;
+	background: lightgreen;
+}
+
+.score {
+	border: 1px solid black;
+	width: 30%;
+	height: 100px;
+	background: lightblue;
+}
